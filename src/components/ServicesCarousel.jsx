@@ -54,15 +54,27 @@ export default function ServicesCarousel() {
           className="w-full max-w-5xl mx-auto"
         >
           {services.map((service, idx) => (
-  <SwiperSlide
-    key={idx}
-    className="bg-gradient-to-br from-[#2c2c2c] to-[#111] text-white rounded-xl p-6 w-64 h-64 flex flex-col justify-center items-center shadow-lg"
-  >
-    <div className="w-14 h-14 bg-gray-100 rounded-md flex items-center justify-center text-black font-bold text-xl mb-4">
-      {service.code}
-    </div>
-    <h4 className="text-sm text-white text-center leading-tight">{service.title}</h4>
-  </SwiperSlide>
+ <SwiperSlide
+ key={idx}
+ className="bg-gradient-to-b from-neutral-900 to-black text-white rounded-2xl p-6 w-72 h-auto shadow-2xl flex flex-col items-center justify-start"
+>
+ <h3 className="text-base font-semibold text-center mb-4 border-b border-gray-600 w-full pb-2">
+   {service.title}
+ </h3>
+ <div className="grid grid-cols-2 gap-4 w-full">
+   {/* 6 placeholder items */}
+   {[...Array(6)].map((_, index) => (
+     <div
+       key={index}
+       className="flex flex-col items-center text-center text-xs font-medium"
+     >
+       <div className="w-10 h-10 bg-white/80 rounded-md mb-1" />
+       <span>Item {index + 1}</span>
+     </div>
+   ))}
+ </div>
+</SwiperSlide>
+
 ))}
 
         </Swiper>
